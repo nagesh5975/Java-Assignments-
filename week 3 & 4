@@ -1,0 +1,168 @@
+week 3 
+A1: 
+// Create two subclasses, ComputerScience and MechanicalEngineering, each having a method with the same name getCourse() that prints specific courses for the respective departments.
+class ComputerScience extends Department{
+  public void getCourses(){
+    System.out.println("Courses: Data Structures, Algorithms, Operating Systems");
+  }
+}
+class MechanicalEngineering extends Department{
+  public void getCourses(){
+    System.out.print("Courses: Thermodynamics, Fluid Mechanics, Heat Transfer");
+  }
+}
+A2:
+class cls2 extends cls1{
+  void mul(int a, int b){
+    System.out.println(a * b);
+  }
+  void task(int a, int b){
+    System.out.print(a * a + b * b);
+  }
+}
+A3:
+public static int factorial(int n){
+  if (n == 0){
+    return 1;
+  }
+  return n * factorial(n - 1);
+}
+A4: 
+        int count = 0;          // To count the number of inputs
+        double sum = 0;         // To store the sum of the numbers
+        long product = 1;       // To store the product of the numbers
+        boolean hasNumbers = false; // To check if any numbers were entered
+
+        while (true) {
+            choice = input.nextLine();
+
+            if (choice.equalsIgnoreCase("q")) {
+                break; // Exit the loop if user inputs 'q'
+            }
+
+            try {
+                int number = Integer.parseInt(choice);
+                sum += number;
+                product *= number;
+                count++;
+                hasNumbers = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter an integer or 'q' to quit.");
+            }
+        }
+
+        if (hasNumbers) {
+            double average = sum / count;
+            // Manually round up to 7 decimal places
+            double roundedAverage = roundToSevenDecimalPlaces(average);
+            // Format the average to 7 decimal places
+            String formattedAverage = String.format("%.7f", roundedAverage);
+
+            System.out.println("Product is: " + product);
+            System.out.print("Average is: " + formattedAverage);
+
+        } else {
+            System.out.println("No numbers were entered.");
+        }
+
+        input.close();
+    }
+
+    // Method to round to exactly 7 decimal places
+    public static double roundToSevenDecimalPlaces(double value) {
+        // Round to 8 decimal places first and then truncate to 7 decimal places
+        double scale = Math.pow(10, 8);
+        return Math.floor(value * scale + 0.5) / scale;
+
+A5:
+// Create a subclass called HRManager that overrides the work() method and adds a new method called addEmployee().
+class HRManager extends Employee {
+    public HRManager(int salary) {
+        super(salary);
+    }
+
+    @Override
+    public void work() {
+      System.out.println();
+        System.out.println("Managing employees");
+       
+    }
+
+    public void addEmployee() {
+        System.out.println();
+        System.out.print("Adding new employee!");
+    }
+}
+Week 4:
+A1:
+// Define static method swap()to swap the values of e1 and e2 of class Question.
+    public static void swap(Question obj) { // Swap method using object reference
+        int temp = obj.e1;
+        obj.e1 = obj.e2;
+        obj.e2 = temp;
+    }
+A2:
+//Complete the code segment to define a class Point with parameter x,y and method skope() for calculating slope between two points.
+// Note: Pass objectsof type class Point as argument in slope() method
+class Point {
+    private double x;
+    private double y;
+
+    public Point(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public double slope(Point p2) {
+        // Check for division by zero (vertical line case)
+        if (p2.x == this.x) {
+            throw new ArithmeticException("Slope is undefined for points with same x-coordinate (vertical line)");
+        }
+        return (p2.y - this.y) / (p2.x - this.x); // Calculate slope
+    }
+}
+
+A3:
+//Create the method sum() to find the sum of two numbers.
+//Create the static method multiply() to find the product of two numbers.
+public int sum(int n1, int n2) {
+        return n1 + n2;
+    }
+
+    // Static method multiply() to find the product of two numbers
+    public static int multiply(int n1, int n2) {
+        return n1 * n2;
+    }
+
+A4:
+interface ExtraLarge{
+	String extra = "This is extra-large";
+  public static void display(){
+    System.out.println("This is extra-large");
+  }
+}
+
+class Large {
+    public void Print() {
+        System.out.println("This is large");
+    }
+}
+ 
+class Medium extends Large {
+    public void Print() {
+    	  super.Print();  
+        System.out.println("This is medium");
+    }
+}
+class Small extends Medium {
+    public void Print() {
+        super.Print(); ; 
+        System.out.println("This is small");
+    }
+  }
+A5:
+for (int i = 0, count = 0; count < n; i += 2, count++) {
+            if (i % 3 == 0) {
+                sum += i;
+            }
+        }
